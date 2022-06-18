@@ -1,5 +1,5 @@
 import React from 'react';
-import Counter from './components/counter';
+import Counters from './components/counters';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   };
   return (
     <div className="App" style={style}>
-      <Counter />
+      <Counters />
     </div>
   );
 }

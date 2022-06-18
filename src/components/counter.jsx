@@ -1,48 +1,48 @@
 import React, { useState } from 'react';
 
-const Counter = () => {
-  const [count, setCount] = useState(0);
-  const [tags, setTags] = useState(['tag1', 'tag2', 'tag3']);
+const Counter = (props) => {
+  // const [value, setValue] = useState(props.counter.value);
   const style = {
     fontSize: 20,
     fontWeight: 'bold',
     margin: 20,
   };
 
-  const formatCount = () => (count === 0 ? 'Zero' : count);
+  const className = 'btn btn-sm border border-dark shadow-lg btn-';
 
-  const renderTags = () => {
-    if (tags.length === 0) return <p>There are no tags!</p>;
-    return (
-      <ul>
-        {tags.map((tag) => (
-          <li key={tag}>{tag}</li>
-        ))}
-      </ul>
-    );
-  };
+  const formatCount = () => (props.counter.value === 0 ? 'Zero' : props.counter.value);
 
-  const handleIncrement = () => setCount(count + 1);
-  const handleDecrement = () => setCount(count - 1);
+  // const handleDecrement = () => setValue(value - 1);
 
   return (
-    <>
+    <div>
       <span style={style} className={countClasses()}>
         {formatCount()}
       </span>
-      <button style={style} onClick={handleIncrement} className="btn btn-secondary btn-sm">
+      <button
+        style={style}
+        onClick={() => props.onIncrement(props.counter)}
+        className={className + 'secondary'}>
         +
       </button>
-      <button style={style} onClick={handleDecrement} className="btn btn-secondary btn-sm">
+      <button
+        style={style}
+        onClick={() => props.onDecrement(props.counter)}
+        className={className + 'secondary'}>
         -
       </button>
-      {renderTags()}
-    </>
+      <button
+        style={style}
+        onClick={() => props.onDelete(props.counter.id)}
+        className={className + 'danger'}>
+        Del
+      </button>
+    </div>
   );
 
   function countClasses() {
     let classes = 'm-2 p-2 rounded bg-';
-    classes += count === 0 ? 'primary' : 'success';
+    classes += props.counter.value === 0 ? 'primary' : 'success';
     return classes;
   }
 };
