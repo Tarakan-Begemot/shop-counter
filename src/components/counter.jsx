@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Counter = (props) => {
   // const [value, setValue] = useState(props.counter.value);
@@ -12,13 +12,16 @@ const Counter = (props) => {
 
   const formatCount = () => (props.counter.value === 0 ? 'Zero' : props.counter.value);
 
-  // const handleDecrement = () => setValue(value - 1);
+  const propsCounters = () => {
+    console.log(props.counter);
+  };
 
   return (
     <div>
       <span style={style} className={countClasses()}>
-        {formatCount()}
+        {formatCount(props.counter.value)}
       </span>
+      <button onClick={propsCounters}>CL</button>
       <button
         style={style}
         onClick={() => props.onIncrement(props.counter)}
