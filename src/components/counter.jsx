@@ -1,27 +1,23 @@
 import React from 'react';
 
 const Counter = (props) => {
-  // const [value, setValue] = useState(props.counter.value);
   const style = {
     fontSize: 20,
     fontWeight: 'bold',
     margin: 20,
+    width: 60,
+    display: 'inline-block',
   };
 
   const className = 'btn btn-sm border border-dark shadow-lg btn-';
 
   const formatCount = () => (props.counter.value === 0 ? 'Zero' : props.counter.value);
 
-  // const propsCounters = () => {
-  //   console.log(props.counter.value);
-  // };
-
   return (
     <div>
-      <span style={style} className={countClasses()}>
+      <p style={style} className={countClasses()}>
         {formatCount(props.counter.value)}
-      </span>
-      {/* <button onClick={propsCounters}>CL</button> */}
+      </p>
       <button
         style={style}
         onClick={() => props.onIncrement(props.counter)}
