@@ -12,16 +12,16 @@ const Counter = (props) => {
 
   const formatCount = () => (props.counter.value === 0 ? 'Zero' : props.counter.value);
 
-  const propsCounters = () => {
-    console.log(props.counter);
-  };
+  // const propsCounters = () => {
+  //   console.log(props.counter.value);
+  // };
 
   return (
     <div>
       <span style={style} className={countClasses()}>
         {formatCount(props.counter.value)}
       </span>
-      <button onClick={propsCounters}>CL</button>
+      {/* <button onClick={propsCounters}>CL</button> */}
       <button
         style={style}
         onClick={() => props.onIncrement(props.counter)}
@@ -30,6 +30,7 @@ const Counter = (props) => {
       </button>
       <button
         style={style}
+        disabled={props.counter.value === 0}
         onClick={() => props.onDecrement(props.counter)}
         className={className + 'secondary'}>
         -

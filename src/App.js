@@ -1,5 +1,6 @@
 import React from 'react';
 import Counters from './components/counters';
+import Navbar from './components/navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
   };
   return (
     <div className="App" style={style}>
+      <Navbar />
       <Counters />
     </div>
   );
